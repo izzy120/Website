@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Book Service | InkyShaman</title>
+
+    <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+
+<div class="booking-container">
+
+    <div class="booking-header">
+        <h1>Book an On-Site Service</h1>
+        <p>
+            Choose a service, select a date and time, then pay the booking
+            deposit to reserve your appointment.
+        </p>
+    </div>
+
+    <!-- Progress Bar -->
+
+    <div class="progress-bar">
+
+        <div class="progress-step active">
+            1
+            <span>Contact</span>
+        </div>
+
+        <div class="progress-step">
+            2
+            <span>Appointment</span>
+        </div>
+
+        <div class="progress-step">
+            3
+            <span>Review</span>
+        </div>
+
+    </div>
+
+    <form id="bookingForm">
+
+        <!-- STEP 1 -->
+
+        <div class="step active" id="step1">
+
+            <h2>Your Information</h2>
+
+            <label>Full Name</label>
+            <input
+                type="text"
+                id="name"
+                required
+            >
+
+            <label>Email Address</label>
+            <input
+                type="email"
+                id="email"
+                required
+            >
+
+            <label>Phone Number</label>
+            <input
+                type="tel"
+                id="phone"
+                required
+            >
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    id="next1"
+                    class="primary-btn">
+
+                    Continue →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 2 -->
+
+        <div class="step" id="step2">
+
+            <h2>Appointment Details</h2>
+
+            <label>Service</label>
+
+            <select id="service">
+
+                <option>Computer Repair</option>
+                <option>Networking</option>
+                <option>Business IT</option>
+                <option>Game Console Repair</option>
+                <option>Phone Repair</option>
+                <option>Data Recovery</option>
+
+            </select>
+
+            <label>Date</label>
+
+            <input
+                type="date"
+                id="date"
+                required
+            >
+
+            <label>Time</label>
+
+            <input
+                type="time"
+                id="time"
+                required
+            >
+
+            <label>Street Address</label>
+
+            <input
+                type="text"
+                id="address"
+                required
+            >
+
+            <label>City</label>
+
+            <input
+                type="text"
+                id="city"
+                required
+            >
+
+            <label>State</label>
+
+            <input
+                type="text"
+                id="state"
+                required
+            >
+
+            <label>ZIP Code</label>
+
+            <input
+                type="text"
+                id="zip"
+                required
+            >
+
+            <label>Describe the Problem</label>
+
+            <textarea
+                id="problem"
+                rows="5"
+            ></textarea>
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    id="back1"
+                    class="secondary-btn">
+
+                    ← Back
+
+                </button>
+
+                <button
+                    type="button"
+                    id="next2"
+                    class="primary-btn">
+
+                    Review →
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- STEP 3 -->
+
+        <div class="step" id="step3">
+
+            <h2>Review Your Appointment</h2>
+
+            <div class="review-box">
+
+                <p><strong>Name:</strong> <span id="review-name"></span></p>
+
+                <p><strong>Email:</strong> <span id="review-email"></span></p>
+
+                <p><strong>Phone:</strong> <span id="review-phone"></span></p>
+
+                <hr>
+
+                <p><strong>Service:</strong> <span id="review-service"></span></p>
+
+                <p><strong>Date:</strong> <span id="review-date"></span></p>
+
+                <p><strong>Time:</strong> <span id="review-time"></span></p>
+
+                <hr>
+
+                <p><strong>Address:</strong></p>
+
+                <p id="review-address"></p>
+
+                <hr>
+
+                <p><strong>Problem Description</strong></p>
+
+                <p id="review-problem"></p>
+
+            </div>
+
+            <div class="deposit-box">
+
+                <h3>$50 Appointment Deposit</h3>
+
+                <p>
+
+                    Clicking Continue will take you to the secure Stripe
+                    payment page.
+
+                </p>
+
+            </div>
+
+            <div class="buttons">
+
+                <button
+                    type="button"
+                    id="back2"
+                    class="secondary-btn">
+
+                    ← Back
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Continue to Deposit
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script src="booking.js"></script>
+
+</body>
+</html>

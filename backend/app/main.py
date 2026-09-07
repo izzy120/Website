@@ -1,112 +1,111 @@
-from fastapi import FastAPI
-
-from database import Base
-from database import engine
-
-from fastapi import Depends
-
+from fastapi import FastAPI, Depends, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
-from database import get_db
+from app.database import SessionLocal, engine
+from app import database
+from app import models
+from app.schemas import AppointmentCreate
+from app.services.availability import is_time_available
 
-from schemas import AppointmentCreate
-
-from scheduler import get_available_times
-
-import backend.app.models.models as models
-
-Base.metadata.create_all(bind=engine)
+# Create database tables
+database.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
     title="InkyShaman Booking API",
     version="1.0.0"
 )
 
+# Allow frontend to communicate with backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Database Dependency
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+# --------------------------------------------------
+# Root
+# --------------------------------------------------
 
 @app.get("/")
-def home():
-
+def root():
     return {
-
-        "status": "online",
-
-        "application": "InkyShaman Booking API"
-
+        "message": "Welcome to the InkyShaman Booking API"
     }
 
+
+# --------------------------------------------------
+# Health Check
+# --------------------------------------------------
 
 @app.get("/health")
 def health():
-
     return {
-
-        "status": "healthy"
-
+        "status": "online"
     }
+
+
+# --------------------------------------------------
+# Get All Appointments
+# --------------------------------------------------
 
 @app.get("/appointments")
-def get_appointments():
+def get_appointments(db: Session = Depends(get_db)):
+    appointments = db.query(models.Appointment).all()
+    return appointments
 
-    return {
 
-        "message":"Appointments endpoint coming soon."
-
-    }
+# --------------------------------------------------
+# Create Appointment
+# --------------------------------------------------
 
 @app.post("/appointments")
 def create_appointment(
-
     appointment: AppointmentCreate,
-
     db: Session = Depends(get_db)
-
 ):
 
+    # Check if date/time already booked
+    if not is_time_available(
+        db,
+        appointment.appointment_date,
+        appointment.appointment_time
+    ):
+        raise HTTPException(
+            status_code=400,
+            detail="That appointment time has already been booked."
+        )
+
     new_appointment = models.Appointment(
-
         customer_name=appointment.customer_name,
-
         phone=appointment.phone,
-
         email=appointment.email,
-
         service=appointment.service,
-
         appointment_date=appointment.appointment_date,
-
         appointment_time=appointment.appointment_time,
-
         address=appointment.address,
-
         city=appointment.city,
-
         state=appointment.state,
-
         zip_code=appointment.zip_code,
-
         problem_description=appointment.problem_description
-
     )
 
     db.add(new_appointment)
-
     db.commit()
-
     db.refresh(new_appointment)
 
     return {
-
-        "message": "Appointment created successfully",
-
+        "message": "Appointment created successfully.",
         "appointment_id": new_appointment.id
-
-    }
-
-@app.get("/available-times")
-def available_times():
-
-    return {
-
-        "times": get_available_times()
-
     }
