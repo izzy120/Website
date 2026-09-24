@@ -245,7 +245,8 @@
                 </button>
 
                 <button
-                    type="submit"
+                    type="button"
+                    id="submitBooking"
                     class="primary-btn">
 
                     Continue to Deposit
@@ -255,6 +256,46 @@
             </div>
 
         </div>
+<!-- ==============================
+     BOOKING SUCCESS
+============================== -->
+
+<div class="booking-success" id="bookingSuccess" style="display: none !important;">
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <h2>Appointment Saved!</h2>
+
+    <p class="success-message">
+        Your appointment has been successfully saved.
+    </p>
+
+    <p class="success-details">
+        Your $50 appointment deposit is the next step.
+        Continue to payment to secure your appointment.
+    </p>
+
+    <div class="success-actions">
+
+        <button
+            type="button"
+            id="continuePayment"
+            class="primary-btn">
+            Continue to Payment
+        </button>
+
+        <button
+            type="button"
+            id="startOver"
+            class="secondary-btn">
+            Start Over
+        </button>
+
+    </div>
+
+</div>
 
     </form>
 

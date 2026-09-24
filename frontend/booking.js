@@ -17,6 +17,7 @@ const back2 = document.getElementById("back2");
 // -----------------------------
 // STEP 1 -> STEP 2
 // -----------------------------
+
 next1.addEventListener("click", () => {
 
     step1.classList.remove("active");
@@ -30,6 +31,7 @@ next1.addEventListener("click", () => {
 // -----------------------------
 // STEP 2 -> STEP 1
 // -----------------------------
+
 back1.addEventListener("click", () => {
 
     step2.classList.remove("active");
@@ -43,6 +45,7 @@ back1.addEventListener("click", () => {
 // -----------------------------
 // STEP 2 -> STEP 3
 // -----------------------------
+
 next2.addEventListener("click", () => {
 
     document.getElementById("review-name").textContent =
@@ -83,6 +86,7 @@ next2.addEventListener("click", () => {
 // -----------------------------
 // STEP 3 -> STEP 2
 // -----------------------------
+
 back2.addEventListener("click", () => {
 
     step3.classList.remove("active");
@@ -94,12 +98,112 @@ back2.addEventListener("click", () => {
 });
 
 // -----------------------------
-// FORM SUBMIT
+// CONTINUE TO DEPOSIT
+// SEND BOOKING TO FASTAPI
 // -----------------------------
-document.getElementById("bookingForm").addEventListener("submit", function(e){
 
-    e.preventDefault();
+document.getElementById("submitBooking").addEventListener("click", async function() {
 
-    alert("Next we'll send this booking to the FastAPI backend and redirect to Stripe.");
+    const bookingData = {
+
+        customer_name:
+            document.getElementById("name").value,
+
+        phone:
+            document.getElementById("phone").value,
+
+        email:
+            document.getElementById("email").value,
+
+        service:
+            document.getElementById("service").value,
+
+        appointment_date:
+            document.getElementById("date").value,
+
+        appointment_time:
+            document.getElementById("time").value,
+
+        address:
+            document.getElementById("address").value,
+
+        city:
+            document.getElementById("city").value,
+
+        state:
+            document.getElementById("state").value,
+
+        zip_code:
+            document.getElementById("zip").value,
+
+        problem_description:
+            document.getElementById("problem").value
+    };
+
+    console.log("Sending booking:", bookingData);
+
+    try {
+
+        const response = await fetch(
+            "http://127.0.0.1:8000/appointments",
+            {
+                method: "POST",
+
+                headers: {
+                    "Content-Type": "application/json"
+                },
+
+                body: JSON.stringify(bookingData)
+            }
+        );
+
+        const result = await response.json();
+
+        console.log("FastAPI response:", result);
+
+        if (!response.ok) {
+
+            console.error("FastAPI error:", result);
+
+            alert(
+                "There was a problem creating the appointment."
+            );
+
+            return;
+        }
+
+if (!response.ok) {
+    console.error("FastAPI error:", result);
+
+    alert(
+        "There was a problem creating the appointment."
+    );
+
+    return;
+}
+
+// Booking successfully saved
+console.log("Appointment successfully created.");
+
+// Hide the booking steps
+document.getElementById("step1").style.display = "none";
+document.getElementById("step2").style.display = "none";
+document.getElementById("step3").style.display = "none";
+
+// Show the success screen
+document.getElementById("bookingSuccess").style.setProperty(
+    "display",
+    "block",
+    "important"
+);
+
+} catch (error) {
+
+        console.error("Connection error:", error);
+
+        alert(
+            "Could not connect to the InkyShaman booking server."
+        );
+    }
 
 });
