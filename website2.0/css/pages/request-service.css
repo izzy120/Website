@@ -1,0 +1,332 @@
+
+/* ========================================
+   INKYSHAMAN — REQUEST SERVICE PAGE
+   ======================================== */
+
+.request-hero {
+    padding-top: clamp(56px, 8vw, 104px);
+    padding-bottom: 48px;
+    background:
+        radial-gradient(
+            ellipse at 85% 15%,
+            rgba(157, 115, 255, 0.10),
+            transparent 48%
+        ),
+        var(--color-background, #0b0a0f);
+}
+
+.request-hero h1 {
+    max-width: 900px;
+    margin: 20px 0;
+    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+}
+
+.request-hero h1 .text-accent {
+    display: block;
+    color: var(--color-accent, #a78bfa);
+}
+
+.request-lead {
+    max-width: 680px;
+    color: var(--color-muted, #aaa6b5);
+    font-size: 1.1rem;
+    line-height: 1.8;
+}
+
+.request-content {
+    background: var(--color-surface, #19181f);
+}
+
+.request-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: start;
+    gap: clamp(40px, 7vw, 100px);
+}
+
+/* Left information column */
+
+.request-information {
+    padding-top: 18px;
+}
+
+.request-information h2,
+.request-form-panel h2 {
+    margin: 16px 0;
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+}
+
+.request-information h2 .text-accent {
+    color: var(--color-accent, #a78bfa);
+}
+
+.request-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-top: 34px;
+}
+
+.request-step > span {
+    display: grid;
+    place-items: center;
+    flex: 0 0 44px;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(157, 115, 255, 0.35);
+    border-radius: 12px;
+    color: var(--color-accent, #a78bfa);
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.request-step h3 {
+    margin: 2px 0 8px;
+    font-size: 1.05rem;
+}
+
+.request-step p {
+    margin: 0;
+    color: var(--color-muted, #aaa6b5);
+    font-size: 0.95rem;
+    line-height: 1.75;
+}
+
+.request-note {
+    margin-top: 42px;
+    padding: 22px;
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    border-radius: 16px;
+    background: rgba(167, 139, 250, 0.06);
+}
+
+.request-note strong {
+    color: var(--color-accent, #a78bfa);
+}
+
+.request-note p {
+    margin: 10px 0 0;
+    color: var(--color-muted, #aaa6b5);
+    font-size: 0.92rem;
+    line-height: 1.75;
+}
+
+/* Form panel */
+
+.request-form-panel {
+    min-width: 0;
+    padding: clamp(24px, 4vw, 42px);
+    border: 1px solid var(--color-border, #302d38);
+    border-radius: 22px;
+    background: var(--color-card, #121116);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.16);
+}
+
+.request-form-panel h2 {
+    margin-bottom: 8px;
+}
+
+.form-intro {
+    margin: 0 0 28px;
+    color: var(--color-muted, #aaa6b5);
+    font-size: 0.9rem;
+}
+
+#service-request-form {
+    display: grid;
+    gap: 22px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-width: 0;
+}
+
+.form-field label,
+.address-fields legend {
+    color: var(--color-text, #f4f2f8);
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0;
+    padding: 14px 15px;
+    border: 1px solid var(--color-border, #302d38);
+    border-radius: 10px;
+    outline: none;
+    background: #19171f;
+    color: var(--color-text, #f4f2f8);
+    font: inherit;
+    font-size: 0.95rem;
+    transition:
+        border-color 160ms ease,
+        box-shadow 160ms ease;
+}
+
+.form-field input,
+.form-field select {
+    min-height: 50px;
+}
+
+.form-field textarea {
+    min-height: 140px;
+    resize: vertical;
+    line-height: 1.65;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: #827d8d;
+    opacity: 1;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    border-color: var(--color-accent, #a78bfa);
+    box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.12);
+}
+
+.form-field select {
+    cursor: pointer;
+}
+
+.form-field select option {
+    background: #19171f;
+    color: #f4f2f8;
+}
+
+/* Address section */
+
+.address-fields {
+    display: grid;
+    gap: 22px;
+    min-width: 0;
+    margin: 0;
+    padding: 22px 0 0;
+    border: 0;
+    border-top: 1px solid var(--color-border, #302d38);
+}
+
+.address-fields legend {
+    padding: 0 12px 0 0;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 16px;
+}
+
+/* Contact consent */
+
+.consent-field {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--color-muted, #aaa6b5);
+    font-size: 0.9rem;
+    line-height: 1.65;
+    cursor: pointer;
+}
+
+.consent-field input {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    margin-top: 3px;
+    accent-color: var(--color-primary, #9bea70);
+    cursor: pointer;
+}
+
+/* Submit button */
+
+.request-submit {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 54px;
+    border: 0;
+    cursor: pointer;
+}
+
+.request-submit:focus-visible {
+    outline: 2px solid var(--color-accent, #a78bfa);
+    outline-offset: 4px;
+}
+
+.request-status {
+    display: none;
+    margin: 0;
+    padding: 14px;
+    border: 1px solid var(--color-border, #302d38);
+    border-radius: 10px;
+    color: var(--color-muted, #aaa6b5);
+    line-height: 1.6;
+}
+
+.request-status:not(:empty) {
+    display: block;
+}
+
+.form-disclaimer {
+    margin: 0;
+    color: var(--color-muted, #aaa6b5);
+    font-size: 0.82rem;
+    line-height: 1.7;
+}
+
+/* Responsive layout */
+
+@media (max-width: 900px) {
+    .request-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 48px;
+    }
+
+    .request-information {
+        max-width: 680px;
+    }
+
+    .request-form-panel {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 560px) {
+    .request-hero {
+        padding-bottom: 32px;
+    }
+
+    .request-hero h1 {
+        font-size: clamp(2.4rem, 11vw, 3.5rem);
+    }
+
+    .request-form-panel {
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    .form-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .request-step {
+        gap: 14px;
+    }
+}

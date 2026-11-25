@@ -1,0 +1,376 @@
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgb(11 11 16 / 88%);
+  border-bottom: 1px solid rgb(255 255 255 / 6%);
+  backdrop-filter: blur(18px);
+}
+
+.header-inner {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.brand-name {
+  font-size: 1.25rem;
+  font-weight: 750;
+  letter-spacing: -0.04em;
+  color: var(--color-text);
+}
+
+.brand-name span {
+  color: var(--color-purple);
+}
+
+.primary-navigation {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-link {
+  color: var(--color-text-muted);
+  font-size: 0.92rem;
+  transition: color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-text);
+}
+
+.button {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-weight: 650;
+  font-size: 0.94rem;
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--color-green);
+  color: #11150d;
+}
+
+.button-primary:hover {
+  background: var(--color-green-hover);
+}
+
+.button-secondary {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--color-text);
+}
+
+.button-secondary:hover {
+  background: var(--color-surface);
+  border-color: var(--color-purple);
+}
+
+.text-link,
+.card-link {
+  color: var(--color-purple-soft);
+  font-weight: 600;
+}
+
+.text-link span,
+.card-link span {
+  display: inline-block;
+  margin-left: 4px;
+  transition: transform var(--transition);
+}
+
+.text-link:hover span,
+.card-link:hover span {
+  transform: translateX(4px);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: var(--color-purple-soft);
+  font-size: 0.76rem;
+  font-weight: 750;
+  letter-spacing: 0.15em;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-green);
+  box-shadow: 0 0 12px rgb(165 232 120 / 45%);
+}
+
+.text-accent {
+  color: var(--color-purple);
+}
+
+.menu-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 10px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 2px;
+  margin-block: 5px;
+  background: var(--color-text);
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  background: #09090d;
+}
+
+.footer-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding-block: 38px;
+}
+
+.footer-description {
+  max-width: 260px;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.footer-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-navigation a {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.footer-navigation a:hover {
+  color: var(--color-green);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 18px;
+  border-top: 1px solid var(--color-border);
+}
+
+.footer-bottom p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+@media (max-width: 800px) {
+  .header-inner {
+    min-height: 76px;
+  }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .primary-navigation {
+    position: absolute;
+    top: calc(100% + 1px);
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 0;
+    padding: 14px var(--page-gutter) 24px;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .primary-navigation.is-open {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 13px 0;
+  }
+
+  .nav-cta {
+    margin-top: 10px;
+  }
+
+  .footer-main {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+/* Shared InkyShaman header and footer logos */
+.site-header .site-logo,
+.site-footer .site-logo,
+#site-header .site-logo,
+#site-footer .site-logo {
+  display: block;
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Keep the header compact */
+#site-header {
+  position: relative;
+  z-index: 100;
+}
+
+/* Prevent oversized component images */
+#site-header img,
+#site-footer img {
+  max-width: 100%;
+}
+
+/* Keep component navigation readable */
+#site-header a,
+#site-footer a {
+  font-size: 0.9rem;
+}
+
+/* ===== Shared header and footer layout fix ===== */
+
+#site-header .site-header,
+#site-footer .site-footer {
+  width: 100%;
+}
+
+#site-header .nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: min(100% - 48px, 1120px);
+  margin-inline: auto;
+  padding-block: 16px;
+}
+
+#site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+#site-header .brand img,
+#site-footer .brand img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  max-width: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+#site-header .brand > span {
+  font-size: 1.15rem;
+  white-space: nowrap;
+}
+
+#site-header .primary-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+#site-header .primary-navigation a {
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+#site-footer .footer-container {
+  width: min(100% - 48px, 1120px);
+  margin-inline: auto;
+}
+
+/* Prevent any unbounded logo images */
+#site-header img,
+#site-footer img {
+  max-width: 50%;
+  height: auto;
+}
+
+@media (max-width: 700px) {
+  #site-header .nav-container {
+    width: calc(100% - 32px);
+  }
+
+  #site-header .primary-navigation {
+    gap: 14px;
+  }
+
+  #site-footer .footer-container {
+    width: calc(100% - 32px);
+  }
+}
+/* Footer logo sizing */
+.site-footer .footer-brand img,
+.site-footer .footer-logo img,
+.site-footer .footer-brand-logo {
+    width: 160px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+}

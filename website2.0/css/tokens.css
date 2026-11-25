@@ -1,0 +1,43 @@
+
+:root {
+  color-scheme: dark;
+
+  /* Brand colors */
+  --color-bg: #0b0b10;
+  --color-bg-soft: #101016;
+  --color-surface: #15141c;
+  --color-surface-hover: #1c1a25;
+
+  --color-purple: #a78bfa;
+  --color-purple-soft: #c4b5fd;
+  --color-green: #a5e878;
+  --color-green-hover: #b9f58f;
+
+  /* Text */
+  --color-text: #f5f4f8;
+  --color-text-muted: #aaa7b6;
+  --color-border: #2a2833;
+
+  /* Layout */
+  --container-width: 1180px;
+  --page-gutter: clamp(20px, 5vw, 64px);
+
+  /* Spacing */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 72px;
+  --section-space: clamp(64px, 9vw, 112px);
+
+  /* Shape */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+
+  /* Effects */
+  --shadow-purple: 0 0 70px rgb(167 139 250 / 12%);
+  --transition: 180ms ease;
+}

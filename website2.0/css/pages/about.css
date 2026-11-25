@@ -1,0 +1,176 @@
+
+.about-hero {
+  padding-block: clamp(72px, 10vw, 132px);
+  background:
+    radial-gradient(ellipse at 85% 20%, rgba(145, 103, 255, .13), transparent 42%),
+    var(--color-bg, #0b0a0f);
+}
+
+.about-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
+  align-items: center;
+  gap: clamp(36px, 7vw, 100px);
+}
+
+.about-copy h1 {
+  max-width: 760px;
+  margin-block: 22px;
+  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  line-height: .99;
+  letter-spacing: -.055em;
+}
+
+.about-copy h1 span {
+  display: block;
+}
+
+.about-lead {
+  max-width: 620px;
+  color: var(--color-text-muted, #aaa6b5);
+  font-size: 1.08rem;
+  line-height: 1.9;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.about-brand-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 340px;
+  padding: 30px;
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 24px;
+  background: linear-gradient(145deg, #191620, #100f15);
+  text-align: center;
+}
+
+.about-logo {
+  display: block;
+  width: min(100%, 300px);
+  height: auto;
+  object-fit: contain;
+}
+
+.about-brand-name {
+  margin: 20px 0 4px;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.about-brand-line {
+  margin: 0;
+  color: var(--color-text-muted, #aaa6b5);
+  font-size: .9rem;
+}
+
+.about-story {
+  background: #15131b;
+}
+
+.about-story-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  gap: clamp(32px, 8vw, 110px);
+}
+
+.about-story h2,
+.about-values h2,
+.about-cta h2 {
+  margin-top: 14px;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.08;
+  letter-spacing: -.04em;
+}
+
+.about-story-copy p {
+  margin-top: 0;
+  margin-bottom: 22px;
+  color: var(--color-text-muted, #aaa6b5);
+  line-height: 1.9;
+}
+
+.about-value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 38px;
+}
+
+.about-value-card {
+  padding: 28px;
+  border: 1px solid rgba(255, 255, 255, .09);
+  border-radius: 18px;
+  background: rgba(18, 16, 24, .75);
+}
+
+.about-number {
+  color: var(--color-accent, #a5ef75);
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+}
+
+.about-value-card h3 {
+  margin-top: 24px;
+  font-size: 1.2rem;
+}
+
+.about-value-card p {
+  margin-bottom: 0;
+  color: var(--color-text-muted, #aaa6b5);
+  line-height: 1.8;
+}
+
+.about-cta {
+  padding-top: 0;
+}
+
+.about-cta-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: clamp(28px, 5vw, 54px);
+  border: 1px solid rgba(255, 255, 255, .1);
+  border-radius: 22px;
+  background: linear-gradient(120deg, #191620, #211b30);
+}
+
+.about-cta-panel h2 {
+  max-width: 600px;
+  margin-bottom: 12px;
+}
+
+.about-cta-panel p:not(.eyebrow) {
+  max-width: 560px;
+  color: var(--color-text-muted, #aaa6b5);
+  line-height: 1.8;
+}
+
+@media (max-width: 800px) {
+  .about-hero-grid,
+  .about-story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-brand-panel {
+    min-height: 260px;
+  }
+
+  .about-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-cta-panel {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

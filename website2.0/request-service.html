@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0b0a0f">
+    <meta name="description" content="Request computer repair, device support, upgrades, custom PC builds, and business IT services from InkyShaman.">
+
+    <title>Request a Service | InkyShaman</title>
+
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/request-service.css">
+
+    <script src="js/navigation.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/request-service.js" defer></script>
+</head>
+
+<body>
+    <header id="site-header"></header>
+
+    <main id="main">
+        <section class="request-hero section">
+            <div class="container">
+                <p class="eyebrow">
+                    <span class="status-dot"></span>
+                    LET'S GET YOUR TECHNOLOGY WORKING
+                </p>
+
+                <h1>
+                    Request a service.
+                    <span class="text-accent">We'll take it from here.</span>
+                </h1>
+
+                <p class="request-lead">
+                    Tell us what you need help with. We'll review your request
+                    and follow up to discuss the next steps.
+                </p>
+            </div>
+        </section>
+
+        <section class="request-content section">
+            <div class="container request-layout">
+                <div class="request-information">
+                    <p class="eyebrow">HOW IT WORKS</p>
+                    <h2>Support that starts with <span class="text-accent">your needs.</span></h2>
+
+                    <div class="request-step">
+                        <span>01</span>
+                        <div>
+                            <h3>Tell us about the issue</h3>
+                            <p>Choose a service and describe what you need.</p>
+                        </div>
+                    </div>
+
+                    <div class="request-step">
+                        <span>02</span>
+                        <div>
+                            <h3>We'll review your request</h3>
+                            <p>We'll assess the details and contact you about availability and pricing.</p>
+                        </div>
+                    </div>
+
+                    <div class="request-step">
+                        <span>03</span>
+                        <div>
+                            <h3>Confirm the next steps</h3>
+                            <p>We'll discuss the service, any applicable fees, and scheduling before proceeding.</p>
+                        </div>
+                    </div>
+
+                    <div class="request-note">
+                        <strong>On-site appointments</strong>
+                        <p>
+                            The standard on-site appointment fee is $75.
+                            Any additional repair, parts, or project costs
+                            should be discussed before work begins.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="request-form-panel">
+                    <p class="eyebrow">SERVICE INTAKE</p>
+                    <h2>Tell us what you need.</h2>
+                    <p class="form-intro">Fields marked with * are required.</p>
+
+                    <form id="service-request-form">
+                        <div class="form-field">
+                            <label for="customer-name">Full name *</label>
+                            <input id="customer-name" name="name" type="text"
+                                autocomplete="name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="customer-email">Email address *</label>
+                            <input id="customer-email" name="email" type="email"
+                                autocomplete="email" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="customer-phone">Phone number *</label>
+                            <input id="customer-phone" name="phone" type="tel"
+                                autocomplete="tel" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="service-category">What do you need help with? *</label>
+                            <select id="service-category" name="service" required>
+                                <option value="">Select a service</option>
+                                <option value="computer-repair">Computer Repair & Support</option>
+                                <option value="upgrades-data-recovery">Upgrades & Data Recovery</option>
+                                <option value="custom-pc">Custom PCs & Workstations</option>
+                                <option value="phones-tablets-consoles">Phones, Tablets & Consoles</option>
+                                <option value="business-it">Business IT Support</option>
+                                <option value="servers-projects">Servers & Technical Projects</option>
+                                <option value="other">Other / Not Sure Yet</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="service-method">Preferred service method *</label>
+                            <select id="service-method" name="service_method" required>
+                                <option value="">Select an option</option>
+                                <option value="on-site">On-site appointment</option>
+                                <option value="remote">Remote support</option>
+                                <option value="drop-off">Drop-off / device repair inquiry</option>
+                                <option value="consultation">Consultation / not sure yet</option>
+                            </select>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="device-details">Device or project details</label>
+                            <input id="device-details" name="device" type="text"
+                                placeholder="Example: gaming PC, laptop, printer, server">
+                        </div>
+
+                        <div class="form-field">
+                            <label for="problem-description">Describe what you need help with *</label>
+                            <textarea id="problem-description" name="description"
+                                rows="5" required
+                                placeholder="Tell us what is happening and what you need done."></textarea>
+                        </div>
+
+                        <fieldset class="address-fields">
+                            <legend>Service address (if applicable)</legend>
+
+                            <div class="form-field">
+                                <label for="customer-street">Street address</label>
+                                <input id="customer-street" name="street"
+                                    autocomplete="street-address" type="text">
+                            </div>
+
+                            <div class="form-field">
+                                <label for="customer-city">City</label>
+                                <input id="customer-city" name="city"
+                                    autocomplete="address-level2" type="text">
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-field">
+                                    <label for="customer-state">State</label>
+                                    <input id="customer-state" name="state"
+                                        autocomplete="address-level1" type="text">
+                                </div>
+
+                                <div class="form-field">
+                                    <label for="customer-zip">ZIP code</label>
+                                    <input id="customer-zip" name="zip"
+                                        autocomplete="postal-code" type="text"
+                                        inputmode="numeric">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <label class="consent-field">
+                            <input type="checkbox" name="contact_consent" required>
+                            <span>I agree that InkyShaman may contact me about this request. *</span>
+                        </label>
+
+                        <button class="button button-primary request-submit" type="submit">
+                            Submit Service Request
+                            <span aria-hidden="true">↗</span>
+                        </button>
+
+                        <p id="request-status" class="request-status" role="status"
+                            aria-live="polite"></p>
+
+                        <p class="form-disclaimer">
+                            Submitting this form does not confirm an appointment
+                            or authorize repair work.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+</body>
+</html>
